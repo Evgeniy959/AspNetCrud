@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Product>
-    <Title>rrrr</Title>
+    <Title>Лев</Title>
     <Price>5</Price>
-    <Quantity>8</Quantity>
-    <Date>2022-10-21T14:11:03.434669+07:00</Date>
+    <Quantity>22</Quantity>
+    <Date>2022-10-21T15:19:33.0295407+07:00</Date>
   </Product>
 </ArrayOfProduct><?xml version="1.0" encoding="utf-8"?>
 <ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Product>
-    <Title>кукла лол</Title>
-    <Price>7</Price>
-    <Quantity>20</Quantity>
-    <Date>2022-10-21T14:39:16.1418784+07:00</Date>
+    <Title>Лев</Title>
+    <Price>18</Price>
+    <Quantity>13</Quantity>
+    <Date>2022-10-21T15:20:35.4348433+07:00</Date>
   </Product>
 </ArrayOfProduct>
