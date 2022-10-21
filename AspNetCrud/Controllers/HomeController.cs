@@ -31,7 +31,7 @@ namespace AspNetCrud.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             /*Product product = new Product();
             product.Date = DateTime.Now;
