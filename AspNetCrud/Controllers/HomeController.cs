@@ -42,7 +42,7 @@ namespace AspNetCrud.Controllers
 
             }*/
             var serializer = new XmlSerializer(typeof(List<Product>));
-            using var reader = new StreamReader(@$"wwwroot/content/list.txt");
+            using var reader = new FileStream(@$"wwwroot/content/list.xml", FileMode.OpenOrCreate);
             var li = (List<Product>)serializer.Deserialize(reader);
             //return li;
             return View(li);
@@ -53,7 +53,7 @@ namespace AspNetCrud.Controllers
             product.Date = DateTime.Now;
             list.Add(product);
             var serializer = new XmlSerializer(typeof(List<Product>));
-            using var writer = new StreamWriter(@$"wwwroot/content/list.txt", true);
+            using var writer = new StreamWriter(@$"wwwroot/content/list.xml", true);
             serializer.Serialize(writer, list);
             /*foreach (var item in list)
             {
