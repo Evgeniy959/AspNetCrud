@@ -1,0 +1,46 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Add";
+}
+
+<h1>Add</h1>
+
+<form asp-action="Add" asp-controller="Home" method="post">
+    @*<div asp-validation-summary="All" class="text-danger"></div>*@
+
+
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span class="text-danger" asp-validation-for="Title"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span class="text-danger" asp-validation-for="Price"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Quantity"></label>
+        <input asp-for="Quantity" class="form-control"/>
+        <span class="text-danger" asp-validation-for="Quantity"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="row">
+            <div class="col-6">
+                <input type="submit" class="form-control btn btn-primary" value="Add" />
+            </div>
+            <div class="col-6">
+                <a asp-action="Index" asp-controller="Home" class="form-control btn btn-primary">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+
+    <partial name="_ValidationScriptsPartial"></partial>
+
+}
