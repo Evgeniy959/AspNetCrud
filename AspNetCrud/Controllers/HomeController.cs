@@ -42,18 +42,30 @@ namespace AspNetCrud.Controllers
 
             }*/
             var serializer = new XmlSerializer(typeof(List<Product>));
-            using var reader = new StreamReader(@$"wwwroot/content/list.txt");
+            using var reader = new FileStream(@$"wwwroot/content/list.xml", FileMode.OpenOrCreate);
+            
             var li = (List<Product>)serializer.Deserialize(reader);
+            //List<Product>? li = serializer.Deserialize(reader) as List<Product>;
             //return li;
             return View(li);
         }
+        /*public async Task<IActionResult> Index()
+        {
+            /*var serializer = new XmlSerializer(typeof(List<Product>));
+            using var reader = new FileStream(@$"wwwroot/content/list.xml", FileMode.OpenOrCreate);
+            List<Product> li = (List<Product>)serializer.Deserialize(reader);
+            //List<Product> li = serializer.Deserialize(reader) as List<Product>;
+            //return li;
+            return View(list);
+        }*/
         [HttpPost]
         public IActionResult Add(Product product)
         {
             product.Date = DateTime.Now;
             list.Add(product);
             var serializer = new XmlSerializer(typeof(List<Product>));
-            using var writer = new StreamWriter(@$"wwwroot/content/list.txt", true);
+            using var writer = new FileStream(@$"wwwroot/content/list.xml", FileMode.Append);
+            //using var writer = new StreamWriter(@$"wwwroot/content/list.xml", false);
             serializer.Serialize(writer, list);
             /*foreach (var item in list)
             {

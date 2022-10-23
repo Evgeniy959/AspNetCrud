@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Product>
+    <Title>Лев 3</Title>
+    <Price>42</Price>
+    <Quantity>24</Quantity>
+    <Date>2022-10-21T18:09:40.6016982+07:00</Date>
+  </Product>
+</ArrayOfProduct><?xml version="1.0"?>
+<ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Product>
+    <Title>кукла лол</Title>
+    <Price>6</Price>
+    <Quantity>4</Quantity>
+    <Date>2022-10-21T18:19:42.4518943+07:00</Date>
+  </Product>
+</ArrayOfProduct>
