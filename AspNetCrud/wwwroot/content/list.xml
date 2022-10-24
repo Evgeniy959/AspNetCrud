@@ -14,4 +14,12 @@
     <Quantity>4</Quantity>
     <Date>2022-10-21T18:19:42.4518943+07:00</Date>
   </Product>
+</ArrayOfProduct><?xml version="1.0"?>
+<ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Product>
+    <Title>Лев</Title>
+    <Price>7</Price>
+    <Quantity>4</Quantity>
+    <Date>2022-10-24T15:31:53.1344158+07:00</Date>
+  </Product>
 </ArrayOfProduct>

@@ -31,8 +31,8 @@ namespace AspNetCrud.Controllers
             return View();
         }
         [HttpGet]
-        public IActionResult Index()
-        {
+        //public IActionResult Index()
+        //{
             /*Product product = new Product();
             product.Date = DateTime.Now;
             list.Add(product);
@@ -41,23 +41,39 @@ namespace AspNetCrud.Controllers
                 Console.WriteLine($"{item.Title}, {item.Price}, {item.Date}");
 
             }*/
-            var serializer = new XmlSerializer(typeof(List<Product>));
-            using var reader = new FileStream(@$"wwwroot/content/list.xml", FileMode.OpenOrCreate);
+            //var serializer = new XmlSerializer(typeof(List<Product>));
+            //using var reader = new FileStream(@$"wwwroot/content/list.xml", FileMode.OpenOrCreate);
             
-            var li = (List<Product>)serializer.Deserialize(reader);
+            /*for (int i = 0; i < reader.Length; i++)
+            {
+                var li = StreamReader.(reader);
+                var li = (Product)serializer.Deserialize(reader);
+            }*/
+            //var li = (List<Product>)serializer.Deserialize(reader);
             //List<Product>? li = serializer.Deserialize(reader) as List<Product>;
             //return li;
-            return View(li);
-        }
-        /*public async Task<IActionResult> Index()
+            /*return View(li.ToList());
+        }*/
+        public async Task<IActionResult> Index()
         {
             /*var serializer = new XmlSerializer(typeof(List<Product>));
             using var reader = new FileStream(@$"wwwroot/content/list.xml", FileMode.OpenOrCreate);
             List<Product> li = (List<Product>)serializer.Deserialize(reader);
             //List<Product> li = serializer.Deserialize(reader) as List<Product>;
-            //return li;
+            //return li;*/
+            using (StreamReader reader = new StreamReader(@$"wwwroot/content/list.xml"))
+            {
+                string? line;
+                while ((line = await reader.ReadLineAsync()) != null)
+                {
+                    Console.WriteLine(line);
+                    
+                }
+                list = line.ToList;
+            }
+            
             return View(list);
-        }*/
+        }
         [HttpPost]
         public IActionResult Add(Product product)
         {
