@@ -41,13 +41,11 @@ namespace AspNetCrud.Controllers
                 Console.WriteLine($"{item.Title}, {item.Price}, {item.Date}");
 
             }*/
-            var serializer = new XmlSerializer(typeof(List<Product>));
-            using var reader = new FileStream(@$"wwwroot/content/list.xml", FileMode.OpenOrCreate);
-            
-            var li = (List<Product>)serializer.Deserialize(reader);
-            //List<Product>? li = serializer.Deserialize(reader) as List<Product>;
-            //return li;
-            return View(li);
+            return View();
+        }
+        public IActionResult Index1()
+        {
+            return View();
         }
         /*public async Task<IActionResult> Index()
         {
@@ -63,17 +61,13 @@ namespace AspNetCrud.Controllers
         {
             product.Date = DateTime.Now;
             list.Add(product);
-            var serializer = new XmlSerializer(typeof(List<Product>));
-            using var writer = new FileStream(@$"wwwroot/content/list.xml", FileMode.Append);
-            //using var writer = new StreamWriter(@$"wwwroot/content/list.xml", false);
-            serializer.Serialize(writer, list);
-            /*foreach (var item in list)
+            foreach (var item in list)
             {
                 Console.WriteLine($"{item.Title}, {item.Price}, {item.Date}");
 
-            }*/
-            return RedirectToAction("Index");
-            //return View();
+            }
+            //return RedirectToAction("Index");
+            return View("Index1", list);
         }
 
 
