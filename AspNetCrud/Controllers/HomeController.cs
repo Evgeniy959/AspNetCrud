@@ -32,9 +32,9 @@ namespace AspNetCrud.Controllers
         {
             return View();
         }
-        public IActionResult Index1()
+        public IActionResult List()
         {
-            return View();
+            return View(list);
         }
         
         [HttpPost]
@@ -47,8 +47,7 @@ namespace AspNetCrud.Controllers
                 Console.WriteLine($"{item.Title}, {item.Price}, {item.Date}");
 
             }
-            //return RedirectToAction("Index");
-            return View("Index1", list);
+            return View("List", list);
         }
 
 
