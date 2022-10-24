@@ -69,10 +69,10 @@ namespace AspNetCrud.Controllers
                     Console.WriteLine(line);
                     
                 }
-                list = line.ToList;
+                var list1 = line.ToList();
             }
             
-            return View(list);
+            return View(list1);
         }
         [HttpPost]
         public IActionResult Add(Product product)
