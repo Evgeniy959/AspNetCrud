@@ -27,52 +27,20 @@ namespace AspNetCrud.Controllers
         [HttpGet]
         public IActionResult Add()
         {
-            //ModelState.AddModelError("Title", "99999");
             return View();
         }
         [HttpGet]
-        //public IActionResult Index()
-        //{
-            /*Product product = new Product();
-            product.Date = DateTime.Now;
-            list.Add(product);
-            foreach (var item in list)
-            {
-                Console.WriteLine($"{item.Title}, {item.Price}, {item.Date}");
-
-            }*/
-            //var serializer = new XmlSerializer(typeof(List<Product>));
-            //using var reader = new FileStream(@$"wwwroot/content/list.xml", FileMode.OpenOrCreate);
-            
-            /*for (int i = 0; i < reader.Length; i++)
-            {
-                var li = StreamReader.(reader);
-                var li = (Product)serializer.Deserialize(reader);
-            }*/
-            //var li = (List<Product>)serializer.Deserialize(reader);
-            //List<Product>? li = serializer.Deserialize(reader) as List<Product>;
-            //return li;
-            /*return View(li.ToList());
-        }*/
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            /*var serializer = new XmlSerializer(typeof(List<Product>));
+            return View();
+        }
+        [HttpGet]
+        public IActionResult List()
+        {
+            var serializer = new XmlSerializer(typeof(List<Product>));
             using var reader = new FileStream(@$"wwwroot/content/list.xml", FileMode.OpenOrCreate);
-            List<Product> li = (List<Product>)serializer.Deserialize(reader);
-            //List<Product> li = serializer.Deserialize(reader) as List<Product>;
-            //return li;*/
-            using (StreamReader reader = new StreamReader(@$"wwwroot/content/list.xml"))
-            {
-                string? line;
-                while ((line = await reader.ReadLineAsync()) != null)
-                {
-                    Console.WriteLine(line);
-                    
-                }
-                var list1 = line.ToList();
-            }
-            
-            return View(list1);
+            var li = (List<Product>)serializer.Deserialize(reader);
+            return View(li);
         }
         [HttpPost]
         public IActionResult Add(Product product)
@@ -81,15 +49,8 @@ namespace AspNetCrud.Controllers
             list.Add(product);
             var serializer = new XmlSerializer(typeof(List<Product>));
             using var writer = new FileStream(@$"wwwroot/content/list.xml", FileMode.Append);
-            //using var writer = new StreamWriter(@$"wwwroot/content/list.xml", false);
             serializer.Serialize(writer, list);
-            /*foreach (var item in list)
-            {
-                Console.WriteLine($"{item.Title}, {item.Price}, {item.Date}");
-
-            }*/
-            return RedirectToAction("Index");
-            //return View();
+            return RedirectToAction("List");
         }
 
 

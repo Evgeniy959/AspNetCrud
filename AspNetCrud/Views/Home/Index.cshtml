@@ -1,31 +1,9 @@
-﻿@model List<Product>
-@{
+﻿@{
     ViewData["Title"] = "Home Page";
-    int count = 1;
 }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Date</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
 
-        @foreach (var item in @Model)
-        {
-        <tr>
-            <th scope="row">@(count++)</th>
-            <td>@item.Title</td>
-            <td>@item.Price</td>
-            <td>@item.Quantity</td>
-            <td>@item.Date</td>
-        </tr>
-        }
-
-    </tbody>
-</table>
