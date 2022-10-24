@@ -15,47 +15,28 @@ namespace AspNetCrud.Controllers
     public class HomeController : Controller
     {
         public List<Product> list { set; get; }
-        //public ObservableCollection<Product> list { set; get; }
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
             list = new List<Product>();
-            //list = new ObservableCollection<Product>();
         }
         [HttpGet]
         public IActionResult Add()
         {
-            //ModelState.AddModelError("Title", "99999");
             return View();
         }
         [HttpGet]
         public IActionResult Index()
         {
-            /*Product product = new Product();
-            product.Date = DateTime.Now;
-            list.Add(product);
-            foreach (var item in list)
-            {
-                Console.WriteLine($"{item.Title}, {item.Price}, {item.Date}");
-
-            }*/
             return View();
         }
         public IActionResult Index1()
         {
             return View();
         }
-        /*public async Task<IActionResult> Index()
-        {
-            /*var serializer = new XmlSerializer(typeof(List<Product>));
-            using var reader = new FileStream(@$"wwwroot/content/list.xml", FileMode.OpenOrCreate);
-            List<Product> li = (List<Product>)serializer.Deserialize(reader);
-            //List<Product> li = serializer.Deserialize(reader) as List<Product>;
-            //return li;
-            return View(list);
-        }*/
+        
         [HttpPost]
         public IActionResult Add(Product product)
         {
